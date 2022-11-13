@@ -3,17 +3,16 @@ const express = require("express");
 const routes = express.Router();
 
 const functionModel = require('../Model/Functions.model');
-// const uri = process.env.MONGO_URI;
+const uri = "mongodb+srv://admin123:5vOpf6yh@cluster0.662rtvn.mongodb.net/test";
 
 
-routes.get("/:idTienda", (req, res) => {
-  const idTienda = req.params.idTienda;
+routes.get("", (req, res) => {
   async function seleccion() {
     const client = new MongoClient(uri);
 
     try {
       await client.connect();
-      const resultado = await functionModel.findProducts(client, idTienda);
+      const resultado = await functionModel.findAlfredoLibre(client);
       res.send(resultado);
     } finally {
       await client.close();

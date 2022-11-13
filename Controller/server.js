@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 
-const routesProducto = require("./Producto.controller");
-const routesVentasTienda = require("./Ventas.controller");
+const routesProducto = require("./Alfredo.controller");
+const routesVentasTienda = require("./Reportes.controller");
 
 const app = express();
 app.set("port", process.env.PORT || 9000);
@@ -15,8 +15,8 @@ app.get("/", (req, res) => {
   res.send("Api funcionando");
 });
 
-app.use("/api/producto", routesProducto);
-app.use("/api/ventasT", routesVentasTienda);
+app.use("/api/alfredo", routesProducto);
+app.use("/api/reportes", routesVentasTienda);
 
 // server running -----------------------------------
 app.listen(app.get("port"), () => {

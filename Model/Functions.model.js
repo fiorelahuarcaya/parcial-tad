@@ -1,19 +1,17 @@
 const { MongoClient } = require("mongodb");
 
- const findProducts = async function(client, tiendaID) {
+ const findAlfredoLibre = async function(client) {
     const result = await client
-      .db(`tienda-${tiendaID}`)
-      .collection("productos")
-      .find({}).toArray();
+      .db(`parcial_alfredo`)
+      .collection("alfredo")
+      .find({ocupado: false}).toArray();
   
     if (result) {
-      console.log(
-        `Se encontró productos en la tienda ${tiendaID}':`
-      );
+      console.log(`Se encontraron Alfreds`);
       console.log(result);
       return result;
     } else {
-      console.log(`No se encontró productos en la tienda '${tiendaID}'`);
+      console.log(`No se encontró Alfreds`);
     }
 }
 
@@ -86,7 +84,7 @@ const comprar = async function (client, tiendaID, userId, productID, quantity, s
   }
 
     module.exports = {
-        findProducts,
+        findAlfredoLibre,
         comprar,
     };
 

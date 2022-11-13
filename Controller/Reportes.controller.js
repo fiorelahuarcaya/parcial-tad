@@ -4,7 +4,7 @@ const routes = express.Router();
 
 const functionModel = require('../Model/Functions.model');
 
-// const uri = process.env.MONGO_URI;
+const uri = "mongodb+srv://admin123:5vOpf6yh@cluster0.662rtvn.mongodb.net/test";
 
 routes.get("/:idTienda/:idUsuario/:idProducto/:cantidad/:pago", (req, res) => {
   const idTienda = req.params.idTienda * 1.0;
